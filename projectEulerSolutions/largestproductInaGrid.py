@@ -32,7 +32,41 @@ for i in range(len(array)):
     for j in range(len(array[i])):
         array[i][j] = int(array[i][j])
 
-def problem_eleven():
-    print(array)
+def row_max(row):
+    ans = 0
+    for i in range(17):
+        current = row[i] * row[i+1] * row[i+2] * row[i+3]
+        if current > ans:
+            ans = current
+    return ans
 
-problem_eleven()
+def column_max(array):
+    ans = 0
+    for i in range(20):
+        for j in range(17):
+            # Since I am clculating the column product I need to take different rows before changing column
+            # i will be the column value and j the row value as j changes before i
+            # as array[0][0] is the correct first value but array[0][1] is the wrong second value
+            # the correct second value is array[1][0].
+            # And as we did for rows we stop at array[16][0] and move on to the next column
+            current = array[j][i] * array[j+1][i] * array[j+2][i] * array[j+3][i]
+            if current > ans:
+                ans = current
+    return ans
+
+def problem_eleven():
+    # Finding row max
+    answer = 0
+    rowMax = 0
+    for i in array:
+        current = row_max(i)
+        if current > rowMax:
+            rowMax = current
+    columnMax = column_max(array)
+    if rowMax > answer:
+        answer = rowMax
+    if columnMax > answer:
+        answer = columnMax
+    return answer
+
+print(problem_eleven())
