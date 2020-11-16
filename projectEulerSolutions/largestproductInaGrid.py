@@ -54,6 +54,28 @@ def column_max(array):
                 ans = current
     return ans
 
+def right_diagonal_max(array):
+    # We need to do this 16 x 16 times
+    diagonalRightMax = 0
+    for i in range(17):
+        for j in range(17):
+            current = array[i][j] * array[i+1][j+1] * array[i+2][j+2] * array[i+3][j+3]
+            if current > diagonalRightMax:
+                diagonalRightMax = current
+                print("RIGHT", current, diagonalRightMax)
+    return diagonalRightMax
+
+def left_diagonal_max(array):
+    # We also need to do this 16 x 16 times
+    diagonalLeftMax = 0
+    for i in range(17):
+        for j in range(17):
+            current = array[i][j + 3] * array[i + 1][j + 2] * array[i + 2][j + 1] * array[i + 3][j]
+            if current > diagonalLeftMax:
+                diagonalLeftMax = current
+                print("LEFT", current, diagonalLeftMax)
+    return diagonalLeftMax
+
 def problem_eleven():
     # Finding row max
     answer = 0
@@ -63,10 +85,16 @@ def problem_eleven():
         if current > rowMax:
             rowMax = current
     columnMax = column_max(array)
+    diagonalRightMax = right_diagonal_max(array)
+    diagonalLeftMax = left_diagonal_max(array)
     if rowMax > answer:
         answer = rowMax
     if columnMax > answer:
         answer = columnMax
+    if diagonalLeftMax > answer:
+        answer = diagonalLeftMax
+    if diagonalRightMax > answer:
+        answer = diagonalRightMax
     return answer
 
 print(problem_eleven())
