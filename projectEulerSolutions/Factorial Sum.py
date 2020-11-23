@@ -6,4 +6,17 @@
 # Find the sum of the digits in the number 100!
 
 def factorial(n):
-    pass
+    factorial = 1
+    for i in range(1, n+1):
+        factorial = factorial * i
+    return factorial
+
+def factorial_sum(n):
+    fact = factorial(n)
+    first_step = [int(d) for d in str(fact)]
+    ans = 0
+    for i in first_step:
+        ans = ans + i
+    return ans
+
+print(factorial_sum(100))
