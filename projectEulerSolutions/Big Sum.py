@@ -105,4 +105,4 @@ def problem_13(big_num):
         first_ans = first_ans + i
     return first_ans
 
-print(problem_13(numbers))
+# print(problem_13(numbers))

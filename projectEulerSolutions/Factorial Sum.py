@@ -19,4 +19,4 @@ def factorial_sum(n):
         ans = ans + i
     return ans
 
-print(factorial_sum(100))
+# print(factorial_sum(100))
