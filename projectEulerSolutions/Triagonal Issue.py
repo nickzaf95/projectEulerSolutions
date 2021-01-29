@@ -33,19 +33,12 @@ def solution_next(n):
     t_array_original = t_array
     p_array = pentagonal_array(n)
     h_array = hexagonal_array(n)
-    print("Done.")
     index_ans = 0
     for i in p_array:
         t_array.append(i)
     for i in h_array:
         t_array.append(i)
     total = sorted(t_array)
-    # Testing whether solution exists
-    # is_total_uniq = set(total)
-    # if len(total) == len(is_total_uniq):
-    #     return False
-    # else:
-    #     return True
     for i in range(len(total) - 2):
         if (total[i] == total[i+1]) and (total[i] == total[i + 2]):
             index_ans = t_array.index(total[i])
