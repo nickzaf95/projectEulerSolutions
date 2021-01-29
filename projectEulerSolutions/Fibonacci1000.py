@@ -24,10 +24,9 @@ def fib_next(last, befLast):
 
 def fibonacci_sequence(n):
     fib = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
-    # print(len(str(fib[len(fib) - 1] )))
     while (len(str(fib[len(fib) - 1])) != n):
         fib.append(fib_next(fib[len(fib) - 1], fib[len(fib) - 2]))
     return len(fib) - 1
 
 
-print(fibonacci_sequence(1000))
+# print(fibonacci_sequence(1000))
